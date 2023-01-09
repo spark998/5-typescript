@@ -1,15 +1,9 @@
-const skills: string[] = ['Dev', 'DevOps', 'Testing'];
+const skill: [number, string] = [1, 'Dev'];
 
-for (const skill of skills) {
-	console.log(skill.toUpperCase());
-}
-
-const res = skills.filter((s: string) => s !== 'DevOps')
-	.map(s => s + '! ')
-	.reduce((a, b) => a + b);
-console.log(res);
-
-const res1 = skills.filter((s: string) => s !== 'DevOps')
-	.map(s => {return 1})
-	.reduce((a, b) => a + b);
-console.log(res1);
+//const id = skill[0];
+//const skillName = skill[1];
+//skill.push('afavcav');
+//const sad = skill[2];
+const [id, skillName] = skill;
+//типизация массива произвольной длинны
+const arr: [number, string, ...boolean[]] = [1, 'dafcav', true, true, false];
