@@ -1,58 +1,23 @@
-/*enum StatusCode {
-	SUCCESS,
-	IN_PROCESS,
-	FAILED
-}*/
-
-/*Числовой enum
-enum StatusCode {
-	SUCCESS = 1,
-	IN_PROCESS = 2,
-	FAILED = 4
-}*/
-
-/*Cтроковый enum
-enum StatusCode {
-	SUCCESS = 's',
-	IN_PROCESS = 'p',
-	FAILED = 'f'
-}*/
-
-//Гетерогенные enum
-enum StatusCode {
-	SUCCESS = 1,
-	IN_PROCESS = 'p',
-	FAILED = 'f'
+enum QuestionStatus {
+	Published = 'published',
+	Draft = 'draft',
+	Deleted = 'deleted'
 }
 
-
-
-const res = {
-	message: 'Платёж успешен',
-	statusCode: StatusCode.SUCCESS
-};
-
-function action(status: StatusCode) {
-
+async function getFaqs(req: {
+		topicId: number, 
+		status: QuestionStatus
+	}): Promise<{
+		question: string,
+		answer:  string,
+		tags: string[],
+		likes: number,
+		status: QuestionStatus
+	}[]> {
+	const res = await fetch('/faqs', {
+		method: 'POST',
+		body: JSON.stringify(req)
+	});
+	const data = await res.json();
+	return data;
 }
-
-action(StatusCode.SUCCESS);
-action(1);
-//action('p');
-
-/*enum Roles {
-	ADMIN = 1,
-	USER = 2;
-}*/
-
-/*function test(x: {ADMIN: number}) {
-
-}
-test(Roles);*/
-
-const enum Roles {
-	ADMIN = 1,
-	USER = 2
-}
-
-const res2 = Roles.ADMIN;

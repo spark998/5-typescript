@@ -1,34 +1,26 @@
 "use strict";
-/*enum StatusCode {
-    SUCCESS,
-    IN_PROCESS,
-    FAILED
-}*/
-/*Числовой enum
-enum StatusCode {
-    SUCCESS = 1,
-    IN_PROCESS = 2,
-    FAILED = 4
-}*/
-/*Cтроковый enum
-enum StatusCode {
-    SUCCESS = 's',
-    IN_PROCESS = 'p',
-    FAILED = 'f'
-}*/
-//Гетерогенные enum
-var StatusCode;
-(function (StatusCode) {
-    StatusCode[StatusCode["SUCCESS"] = 1] = "SUCCESS";
-    StatusCode["IN_PROCESS"] = "p";
-    StatusCode["FAILED"] = "f";
-})(StatusCode || (StatusCode = {}));
-const res = {
-    message: 'Платёж успешен',
-    statusCode: StatusCode.SUCCESS
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-function action(status) {
+var QuestionStatus;
+(function (QuestionStatus) {
+    QuestionStatus["Published"] = "published";
+    QuestionStatus["Draft"] = "draft";
+    QuestionStatus["Deleted"] = "deleted";
+})(QuestionStatus || (QuestionStatus = {}));
+function getFaqs(req) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield fetch('/faqs', {
+            method: 'POST',
+            body: JSON.stringify(req)
+        });
+        const data = yield res.json();
+        return data;
+    });
 }
-action(StatusCode.SUCCESS);
-action(1);
-const res2 = 1 /* Roles.ADMIN */;
