@@ -1,7 +1,31 @@
 "use strict";
-function fetcWithAith(url, method) {
-    return 1;
+const user = {
+    user: {
+        name: 'Vanya',
+        age: 20,
+        skills: ['react', 'ts', 'js'],
+        id: 1
+    },
+    role: {
+        id: 1,
+        name: 'developer'
+    }
+};
+/*type User = {
+    name: string,
+    age: number,
+    skills: string[]
 }
-fetcWithAith('s', 'post');
-let method = 'post';
-fetcWithAith('s', method);
+
+type Role = {
+    id: number;
+}
+
+type UserWithRole = User & Role
+
+let user: UserWithRole = {
+    name: 'adada',
+    age: 22,
+    skills: ['1', '2'],
+    id: 1
+}*/ 
