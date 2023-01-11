@@ -1,48 +1,24 @@
-type User = {
+interface User {
 	name: string,
 	age: number,
 	skills: string[],
-	id: number
+
+	log: (id:number) => string;
 }
 
-type Role = {
-	name: string,
-	id: number
+interface UserWithPole extends User {
+	roleId: number
 }
 
-type UserWithRole = {
-	user: User,
-	role: Role
-}
-const user: UserWithRole = {
-	user: {
-		name: 'Vanya',
-		age: 20,
-		skills: ['react','ts','js'],
-		id: 1
-	},
-	role: {
-		id: 1,
-		name: 'developer'
+let user: UserWithPole = {
+	name: 'Vanya',
+	age: 20,
+	skills: ['react','ts','js'],
+	roleId: 1,
+	log(id) {
+		return '';
 	}
+};
+interface UserDic {
+	[index: number]: User
 }
-
-
-/*type User = {
-	name: string,
-	age: number,
-	skills: string[]
-}
-
-type Role = {
-	id: number;
-}
-
-type UserWithRole = User & Role
-
-let user: UserWithRole = {
-	name: 'adada',
-	age: 22,
-	skills: ['1', '2'],
-	id: 1
-}*/
