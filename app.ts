@@ -1,24 +1,31 @@
 interface User {
-	name: string,
-	age: number,
-	skills: string[],
-
-	log: (id:number) => string;
+	login: string,
+	password?: string
 }
 
-interface UserWithPole extends User {
-	roleId: number
+const user: User = {
+	login: 'fsfs@da',
+	password: '1312'
 }
 
-let user: UserWithPole = {
-	name: 'Vanya',
-	age: 20,
-	skills: ['react','ts','js'],
-	roleId: 1,
-	log(id) {
-		return '';
+function multiply(first: number, second?: number): number {
+	if (!second) {
+		return first * first;
 	}
-};
-interface UserDic {
-	[index: number]: User
+	return first * second;
+}
+multiply(5);
+
+interface User1 {
+	login: string,
+	password?: {
+		type: 'primory' | 'secondary'
+	}
+}
+function testPass(user: User1) {
+	const t = user.password?.type;
+}
+
+function test(param?: string) {
+	const t = param ?? multiply(5);
 }
