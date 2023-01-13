@@ -1,19 +1,16 @@
 "use strict";
-const user = {
-    login: 'fsfs@da',
-    password: '1312'
+function logId(id) {
+    console.log(id);
+}
+const a = logId(1);
+const f1 = () => {
 };
-function multiply(first, second) {
-    if (!second) {
-        return first * first;
-    }
-    return first * second;
-}
-multiply(5);
-function testPass(user) {
-    var _a;
-    const t = (_a = user.password) === null || _a === void 0 ? void 0 : _a.type;
-}
-function test(param) {
-    const t = param !== null && param !== void 0 ? param : multiply(5);
-}
+const f2 = () => {
+    return true;
+};
+const b = f2();
+const skills = ['Dev', 'DevOps'];
+const user = {
+    s: ['s']
+};
+skills.forEach((skill) => user.s.push(skill));
